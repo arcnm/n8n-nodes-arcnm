@@ -1,0 +1,8 @@
+dist
+node_modules
+*.tgz
+*.tsbuildinfo
+.agents/
+.vscode/
+AGENTS.md
+CLAUDE.md

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <title>ARCNM</title>
+  <g transform="translate(0.640 0.640) scale(0.98000)">
+  <polygon points="32,4 56,18 56,46 32,60 8,46 8,18" fill="#2f0d68" stroke="#ffffff" stroke-width="3.878" stroke-linejoin="round" />
+  <path d="M22 22 L42 22 L28 32 L42 42 L22 42" fill="none" stroke="#ffffff" stroke-width="3.878" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
