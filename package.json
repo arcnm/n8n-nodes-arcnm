@@ -18,7 +18,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/arcnm/n8n-nodes-arcnm.git"
+		"url": "git+https://github.com/arcnm/n8n-nodes-arcnm.git"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"scripts": {
 		"build": "n8n-node build && node scripts/copy-codex.mjs",
