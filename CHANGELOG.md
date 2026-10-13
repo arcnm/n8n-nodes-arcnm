@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Publish from GitHub Actions so the package provenance is tied to this repository.
+
 ## 0.1.0
 
 - Quote a part from a CAD file, or quote an existing revision.
