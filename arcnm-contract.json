@@ -1,0 +1,38 @@
+{
+  "$comment": "Every ARCNM operation this node calls, and the fields, query parameters and list keys it relies on. ARCNM checks this file against every change to its API before that change merges. Not part of the npm package.",
+  "operations": [
+    {"method": "GET", "path": "/api/v1/calculations/entitlement"},
+    {"method": "GET", "path": "/api/v1/parts/{part_id}"},
+    {
+      "method": "GET",
+      "path": "/api/v1/parts/",
+      "query": ["q", "folder_id", "limit", "cursor"],
+      "response": {"fields": ["data", "has_more", "next_cursor"]}
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/calculations",
+      "query": ["status_filter", "part_id", "batch_id", "created_after", "created_before", "limit", "cursor"],
+      "response": {"fields": ["items", "has_more", "next_cursor"]}
+    },
+    {"method": "GET", "path": "/api/v1/calculations/{calculation_id}", "query": ["include_analytics"]},
+    {"method": "GET", "path": "/api/v1/calculations/{calculation_id}/cost-sheet", "query": ["quantity"]},
+    {"method": "POST", "path": "/api/v1/calculations/{calculation_id}/cancel"},
+    {
+      "method": "POST",
+      "path": "/api/v1/calculations/quote",
+      "request": {"required": ["part_revision_id"], "fields": ["lot_size", "costing_environment_id"]}
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/calculations/upload-and-quote-json",
+      "request": {
+        "required": ["part_number", "cad_file_b64"],
+        "fields": [
+          "cad_filename", "drawing_file_b64", "cad_content_type", "drawing_filename", "drawing_content_type",
+          "lot_size", "costing_environment_id", "currency", "folder_id", "on_conflict"
+        ]
+      }
+    }
+  ]
+}
