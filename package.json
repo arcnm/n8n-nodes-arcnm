@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-arcnm",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Turn a CAD file into an itemised manufacturing cost for machined and sheet-metal parts.",
 	"license": "MIT",
 	"homepage": "https://arcnm.io",
