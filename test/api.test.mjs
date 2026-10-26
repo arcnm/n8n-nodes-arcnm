@@ -1,5 +1,8 @@
 import assert from 'node:assert/strict';
+import { existsSync, readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
 
 import {
 	MAX_UPLOAD_BYTES,
@@ -14,6 +17,23 @@ import {
 	resolveIdempotencyKey,
 	text,
 } from '../dist/nodes/Arcnm/api.js';
+
+test('codex node id is the package name plus the declared node name', () => {
+	const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+	const codex = JSON.parse(readFileSync(join(root, 'nodes/Arcnm/Arcnm.node.json'), 'utf8'));
+	const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+	const source = readFileSync(join(root, 'nodes/Arcnm/Arcnm.node.ts'), 'utf8');
+	const declared = source.match(/name:\s*'([a-z][^']*)'/);
+	assert.ok(declared, 'node description must declare a lowercase name');
+	assert.equal(codex.node, `${pkg.name}.${declared[1]}`);
+	assert.equal(codex.nodeVersion, '1.0');
+	assert.equal(codex.codexVersion, '1.0');
+	assert.deepEqual(codex.categories, ['Productivity']);
+	const distPath = join(root, 'dist/nodes/Arcnm/Arcnm.node.json');
+	if (existsSync(distPath)) {
+		assert.equal(JSON.parse(readFileSync(distPath, 'utf8')).node, codex.node);
+	}
+});
 
 test('base URL keeps only the origin', () => {
 	assert.equal(normalizeBaseUrl('https://api.arcnm.io/'), 'https://api.arcnm.io');
