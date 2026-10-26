@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-arcnm",
+	"node": "n8n-nodes-arcnm.arcnm",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Productivity"],
