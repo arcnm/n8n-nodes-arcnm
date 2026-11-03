@@ -27,9 +27,9 @@
       "method": "POST",
       "path": "/api/v1/calculations/upload-and-quote-json",
       "request": {
-        "required": ["part_number", "cad_file_b64"],
+        "required": ["part_number"],
         "fields": [
-          "cad_filename", "drawing_file_b64", "cad_content_type", "drawing_filename", "drawing_content_type",
+          "cad_file_b64", "cad_filename", "drawing_file_b64", "cad_content_type", "drawing_filename", "drawing_content_type",
           "lot_size", "costing_environment_id", "currency", "folder_id", "on_conflict"
         ]
       }
